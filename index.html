@@ -23,6 +23,13 @@
       margin-bottom: 20px;
     }
 
+    .btn-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
     .btn {
       padding: 12px 24px;
       border: 2px solid black;
@@ -40,6 +47,11 @@
       box-shadow: 1px 1px 0 black;
     }
 
+    .or-text {
+      font-size: 1rem;
+      margin: 0 5px;
+    }
+
     audio {
       margin-top: 30px;
     }
@@ -47,9 +59,13 @@
 </head>
 <body>
   <h1>Dobra, weź nie pierd*l...</h1>
-  <a href="https://www.youtube.com/@zespolgrass" class="btn">i kliknij!</a>
   
-  <!-- Widoczny odtwarzacz audio -->
+  <div class="btn-container">
+    <a href="https://www.youtube.com/@zespolgrass" class="btn">i kliknij...</a>
+    <span class="or-text">albo</span>
+    <a href="https://example.com" class="btn">kliknij tu!</a>
+  </div>
+  
   <audio controls autoplay loop>
     <source src="piosenka.mp3" type="audio/mpeg">
     Twoja przeglądarka nie obsługuje audio.
