@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <title>Dobra, weź nie pierd*l...</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background-color: white;
+      font-family: sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
       background-image: url('tło.png');
       background-size: cover;
       background-position: center;
@@ -16,64 +21,66 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Warstwa z efektami */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      animation: glitch 2s linear infinite;
+    }
+
+    @keyframes glitch {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100px; }
+    }
+
+    /* Zawartość główna */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 4rem;
       color: white;
-      text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .btn-container {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
     }
 
     .btn {
-      padding: 12px 24px;
+      padding: 16px 32px;
       border: 2px solid black;
       background-color: white;
       color: black;
-      font-size: 1rem;
+      font-size: 1.2rem;
       cursor: pointer;
-      box-shadow: 3px 3px 0 black;
+      box-shadow: 4px 4px 0 black;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
     }
 
     .btn:hover {
       transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 black;
-    }
-
-    .or-text {
-      font-size: 1rem;
-      margin: 0 5px;
-      color: white;
-    }
-
-    audio {
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Dobra, weź nie pierd*l...</h1>
-  
-  <div class="btn-container">
-    <a href="https://www.youtube.com/@zespolgrass" class="btn">i kliknij...</a>
-    <span class="or-text">albo</span>
-    <a href="http://linktr.ee/zespolgrass" class="btn">kliknij tu!</a>
-  </div>
-  
-  <audio controls autoplay loop>
-    <source src="piosenka.mp3" type="audio/mpeg">
-    Twoja przeglądarka nie obsługuje audio.
-  </audio>
-</body>
-</html>
+      box-shadow
