@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grasz czy pas?</title>
+  <title>Telewizor z przyciskami</title>
   <style>
     body {
       margin: 0;
@@ -17,17 +17,12 @@
       min-height: 100vh;
     }
 
-    audio {
-      margin-top: 2rem;
+    .tv-container {
+      position: relative;
+      width: 95vw;
+      max-width: 900px;
+      margin-top: 1rem;
     }
-
-
-.tv-container {
-  position: relative;
-  width: 95vw;
-  max-width: 900px;
-  margin-top: 1rem;
-}
 
     .tv-image {
       width: 100%;
@@ -36,7 +31,7 @@
 
     .button-overlay {
       position: absolute;
-      top: 63%; /* Dopasuj wysokość do miejsca na grafice */
+      top: 63%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
@@ -69,14 +64,14 @@
       font-weight: bold;
       white-space: nowrap;
     }
+
+    audio {
+      margin-top: 1.5rem; /* delikatny odstęp pod telewizorem */
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
 <body>
-
-  <audio controls>
-    <source src="piosenka.mp3" type="audio/mpeg">
-    Twoja przeglądarka nie obsługuje odtwarzacza audio.
-  </audio>
 
   <div class="tv-container">
     <img src="tv.png" alt="Telewizor CRT z napisem" class="tv-image" />
@@ -86,6 +81,11 @@
       <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
     </div>
   </div>
+
+  <audio controls>
+    <source src="piosenka.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
 
 </body>
 </html>
