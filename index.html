@@ -3,93 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TV Grassownia</title>
+  <title>Telewizor</title>
   <style>
     body {
-      background-color: black;
       margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-
-    .tv-container {
-      position: relative;
-      width: 90%;
-      max-width: 600px;
-      aspect-ratio: 4 / 3;
-      background: url('tv-image.png') no-repeat center center;
-      background-size: contain;
-    }
-
-    .tv-screen {
-      position: absolute;
-      top: 12%;
-      left: 10%;
-      width: 80%;
-      height: 70%;
-      background: rgba(0, 0, 0, 0.85);
+      background-color: black;
       color: white;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 10px;
-      box-sizing: border-box;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
 
-    .tv-text {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .tv-buttons {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
-    }
-
-    .tv-buttons a button {
-      background: white;
-      color: black;
-      border: 2px solid black;
-      padding: 10px 15px;
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 4px 4px black;
-    }
-
-    .audio-player audio {
+    .tv {
+      max-width: 90vw;
       width: 100%;
-      max-width: 250px;
+      max-height: 70vh;
+      object-fit: contain;
+      margin-top: 2rem;
+    }
+
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      background-color: white;
+      color: black;
+      padding: 1rem 2rem;
+      border: 3px solid black;
+      box-shadow: 4px 4px 0 #000;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.1s;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+    }
+
+    .buttons .albo {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    audio {
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="tv-container">
-    <div class="tv-screen">
-      <div class="tv-text">Dobra, weź nie pierd*l...</div>
-      <div class="tv-buttons">
-        <a href="https://www.instagram.com/grassownia/" target="_blank">
-          <button>i kliknij…</button>
-        </a>
-        <a href="http://linktr.ee/zespolgrass" target="_blank">
-          <button>kliknij tu!</button>
-        </a>
-      </div>
-      <div class="audio-player">
-        <audio controls>
-          <source src="piosenka.mp3" type="audio/mpeg" />
-          Twoja przeglądarka nie obsługuje dźwięku.
-        </audio>
-      </div>
+  <img src="tv.png" alt="CRT TV" class="tv" />
+
+  <div class="buttons">
+    <div class="button-group">
+      <a href="https://www.instagram.com/grassownia/" target="_blank">i kliknij…</a>
+      <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
     </div>
+    <div class="albo">albo</div>
   </div>
+
+  <audio controls autoplay>
+    <source src="piosenka.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
 </body>
 </html>
