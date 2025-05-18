@@ -29,16 +29,31 @@
       display: block;
     }
 
-    .button-overlay {
+    .overlay {
       position: absolute;
-      top: 63%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none; /* nie blokuje kliknięć w audio */
+    }
+
+    .audio-wrapper {
+      margin-bottom: 2rem;
+      pointer-events: auto; /* pozwala klikać przyciski */
+    }
+
+    .button-overlay {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       justify-content: center;
       flex-wrap: nowrap;
+      pointer-events: auto; /* pozwala klikać */
     }
 
     .button-overlay a {
@@ -66,8 +81,7 @@
     }
 
     audio {
-      margin-top: 1.5rem; /* delikatny odstęp pod telewizorem */
-      margin-bottom: 2rem;
+      width: 200px;
     }
   </style>
 </head>
@@ -75,17 +89,21 @@
 
   <div class="tv-container">
     <img src="tv.png" alt="Telewizor CRT z napisem" class="tv-image" />
-    <div class="button-overlay">
-      <a href="https://www.instagram.com/grassownia/" target="_blank">i kliknij…</a>
-      <span class="albo">albo</span>
-      <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
+    
+    <div class="overlay">
+      <div class="audio-wrapper">
+        <audio controls>
+          <source src="piosenka.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje odtwarzacza audio.
+        </audio>
+      </div>
+      <div class="button-overlay">
+        <a href="https://www.instagram.com/grassownia/" target="_blank">i kliknij…</a>
+        <span class="albo">albo</span>
+        <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
+      </div>
     </div>
   </div>
-
-  <audio controls>
-    <source src="piosenka.mp3" type="audio/mpeg">
-    Twoja przeglądarka nie obsługuje odtwarzacza audio.
-  </audio>
 
 </body>
 </html>
