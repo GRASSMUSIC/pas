@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telewizor z przyciskami</title>
+  <title>Grasz czy pas?</title>
   <style>
     body {
       margin: 0;
@@ -31,7 +31,7 @@
 
     .button-overlay {
       position: absolute;
-      top: 50%;
+      top: 63%; /* Dopasuj położenie w zależności od grafiki */
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
@@ -47,4 +47,42 @@
       color: black;
       padding: 0.8rem 1.6rem;
       font-weight: bold;
-      border: 3
+      border: 3px solid black;
+      box-shadow: 4px 4px 0 black;
+      font-size: 1rem;
+      transition: transform 0.1s;
+    }
+
+    .button-overlay a:hover {
+      transform: scale(1.05);
+    }
+
+    .albo {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    audio {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tv-container">
+    <img src="tv.png" alt="Telewizor CRT z napisem" class="tv-image" />
+    <div class="button-overlay">
+      <a href="https://www.instagram.com/grassownia/" target="_blank">i kliknij…</a>
+      <span class="albo">albo</span>
+      <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="piosenka.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
+
+</body>
+</html>
