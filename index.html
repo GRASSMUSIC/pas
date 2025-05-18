@@ -17,11 +17,15 @@
       min-height: 100vh;
     }
 
+    audio {
+      margin-top: 2rem;
+    }
+
     .tv-container {
       position: relative;
       width: 90vw;
       max-width: 600px;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .tv-image {
@@ -31,26 +35,27 @@
 
     .button-overlay {
       position: absolute;
-      top: 63%; /* Dopasuj położenie w zależności od grafiki */
+      top: 63%; /* Dopasuj wysokość do miejsca na grafice */
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.5rem;
       justify-content: center;
+      flex-wrap: nowrap;
     }
 
     .button-overlay a {
       text-decoration: none;
       background-color: white;
       color: black;
-      padding: 0.8rem 1.6rem;
+      padding: 0.4rem 0.8rem;
       font-weight: bold;
-      border: 3px solid black;
-      box-shadow: 4px 4px 0 black;
-      font-size: 1rem;
+      border: 2px solid black;
+      box-shadow: 3px 3px 0 black;
+      font-size: 0.9rem;
       transition: transform 0.1s;
+      white-space: nowrap;
     }
 
     .button-overlay a:hover {
@@ -59,16 +64,18 @@
 
     .albo {
       color: white;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
-    }
-
-    audio {
-      margin-top: 2rem;
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
+
+  <audio controls>
+    <source src="piosenka.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
 
   <div class="tv-container">
     <img src="tv.png" alt="Telewizor CRT z napisem" class="tv-image" />
@@ -78,11 +85,6 @@
       <a href="http://linktr.ee/zespolgrass" target="_blank">kliknij tu!</a>
     </div>
   </div>
-
-  <audio controls>
-    <source src="piosenka.mp3" type="audio/mpeg">
-    Twoja przeglądarka nie obsługuje odtwarzacza audio.
-  </audio>
 
 </body>
 </html>
