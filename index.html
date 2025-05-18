@@ -1,127 +1,99 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Dobra, weź nie pierd*l...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRT TV Strona</title>
   <style>
-    html, body {
+    body {
+      background-color: black;
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      height: 100%;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
     }
 
-    body {
-      background-image: url('tło.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    .tv-container {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      aspect-ratio: 4 / 3;
+      background: url('tv-image.png') no-repeat center center;
+      background-size: contain;
+    }
+
+    .tv-screen {
+      position: absolute;
+      top: 12%;
+      left: 10.5%;
+      width: 79%;
+      height: 71%;
+      background: rgba(0, 0, 0, 0.8);
+      overflow: hidden;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
+      color: white;
+      text-align: center;
+      padding: 10px;
     }
 
-    /* Warstwa z efektem iskrzenia */
-    .overlay {
+    .tv-screen::after {
+      content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1; /* Overlay pod treścią */
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .scanline {
-      position: absolute;
-      top: -100%;
+      top: 0;
       left: 0;
       width: 100%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(255,255,255,0.2) 50%,
-        transparent 100%
-      );
-      animation: scan 2s linear infinite; /* szybsza animacja */
+      height: 100%;
+      background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif');
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    @keyframes scan {
-      0% { top: -100%; }
-      100% { top: 100%; }
+    .tv-text {
+      z-index: 1;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px black;
     }
 
-    /* Treść: napisy, przyciski */
-    .content {
-      position: relative;
-      z-index: 2; /* Treść na wierzchu */
-      text-align: center;
-      color: white;
-    }
-
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 40px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .btn-container {
+    .tv-buttons {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 15px;
+      z-index: 1;
+      flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 18px 36px;
-      border: 2px solid black;
-      background-color: white;
+    .tv-buttons a {
+      padding: 10px 15px;
+      font-size: 1em;
+      background: white;
       color: black;
-      font-size: 1.3rem;
-      cursor: pointer;
+      border: 2px solid black;
       box-shadow: 4px 4px 0 black;
-      transition: all 0.2s ease-in-out;
+      cursor: pointer;
       text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.1s;
     }
 
-    .btn:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 black;
+    .tv-buttons a:hover {
+      transform: translateY(-2px);
     }
 
-    .or-text {
-      font-size: 1.3rem;
-      color: white;
-      text-shadow: 1px 1px 2px black;
+    .audio-player {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 400px;
     }
 
-    audio {
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div class="overlay">
-    <div class="scanline"></div>
-  </div>
-
-  <div class="content">
-    <h1>Dobra, weź nie pierd*l...</h1>
-
-    <div class="btn-container">
-      <a href="https://www.youtube.com/@zespolgrass" class="btn">i kliknij...</a>
-      <span class="or-text">albo</span>
-      <a href="http://linktr.ee/zespolgrass" class="btn">kliknij tu!</a>
-    </div>
-
-    <audio controls autoplay loop>
-      <source src="piosenka.mp3" type="audio/mpeg">
-      Twoja przeglądarka nie obsługuje audio.
-    </audio>
-  </div>
-</body>
-</html>
+    @media (max-width: 600px) {
+      .tv-text {
+        font
